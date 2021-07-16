@@ -20,7 +20,7 @@ const UserList = () => {
 
   return (
     <div className="container">
-      <h1 className="text-center">User List</h1>
+      <h1 className="text-center">React CRUD App</h1>
       <Link to={"/create"}>
         <button className="btn btn-primary ml-auto">Create User</button>
       </Link>
