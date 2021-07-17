@@ -126,7 +126,7 @@ const UserCreate = () => {
 
           <div className="form-group text-center my-4">
             <button type="submit" disabled={loading} className="btn btn-danger">
-              Register
+              Submit
             </button>
             {loading && (
               <img
