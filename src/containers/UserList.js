@@ -5,6 +5,7 @@ import { getUsers, deleteUserById } from "./../redux/actions/user";
 
 const UserList = () => {
   const dispatch = useDispatch();
+  const loading = useSelector((state) => state.user?.loading);
   const usersList = useSelector((state) => state.user?.users);
 
   useEffect(() => {
@@ -30,7 +31,11 @@ const UserList = () => {
           <button className="btn btn-primary ml-auto">Create User</button>
         </Link>
         {usersList.length === 0 ? (
-          <p className="text-center my-4 text-bold">NO RECORDS FOUND...</p>
+          loading ? (
+            <p className="text-center my-4 text-bold">LOADING...</p>
+          ) : (
+            <p className="text-center my-4 text-bold">NO RECORDS FOUND...</p>
+          )
         ) : (
           <table className="table my-4">
             <thead>
@@ -55,9 +60,7 @@ const UserList = () => {
                       <td>{item.createdAt}</td>
                       <td>
                         <Link to={`/update/${item._id}`}>
-                          <button className="btn btn-success mx-1">
-                            Edit
-                          </button>
+                          <button className="btn btn-success mx-1">Edit</button>
                         </Link>
                         <button
                           className="btn btn-danger mx-1"
