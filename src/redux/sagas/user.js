@@ -64,9 +64,9 @@ function* createUserFromAPI(action) {
     const { response } = error;
     yield put({
       type: CREATE_USER_FAILURE,
-      payload: response.data.message,
+      payload: response?.data?.message || "Something went wrong.",
     });
-    toast(response.data.message);
+    toast(response?.data?.message || "Something went wrong.");
   }
 }
 
@@ -84,7 +84,7 @@ function* getUserListFromAPI(action) {
     const { response } = err;
     yield put({
       type: GET_USER_FAILURE,
-      payload: response.data.message,
+      payload: response?.data?.message || "Something went wrong.",
     });
   }
 }
@@ -103,7 +103,7 @@ function* getUserFromAPI(action) {
     const { response } = err;
     yield put({
       type: GET_USER_BYID_FAILURE,
-      payload: response.data.message,
+      payload: response?.data?.message || "Something went wrong.",
     });
   }
 }
@@ -127,9 +127,9 @@ function* updateUserFromAPI(action) {
     const { response } = err;
     yield put({
       type: UPDATE_USER_BYID_FAILURE,
-      payload: response.data.message,
+      payload: response?.data?.message || "Something went wrong.",
     });
-    toast(response.data.message);
+    toast(response?.data?.message || "Something went wrong.");
   }
 }
 
@@ -148,9 +148,9 @@ function* deleteUserFromAPI(action) {
     const { response } = err;
     yield put({
       type: DELETE_USER_BYID_FAILURE,
-      payload: response.data.message,
+      payload: response?.data?.message || "Something went wrong.",
     });
-    toast(response.data.message);
+    toast(response?.data?.message || "Something went wrong.");
   }
 }
 
